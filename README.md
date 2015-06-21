@@ -1,4 +1,4 @@
-# Athena [![Build Status](https://drone.io/github.com/StarTrackDevKL/athena/status.png)](https://drone.io/github.com/StarTrackDevKL/athena/latest)
+# Athena [![Build Status](https://drone.io/github.com/StarTrackDevKL/athena/status.png)](https://drone.io/github.com/StarTrackDevKL/athena/latest) [![Dependency Status](https://gemnasium.com/StarTrackDevKL/athena.svg)](https://gemnasium.com/StarTrackDevKL/athena)
 A simple library system powered by [JHipster](http://jhipster.github.io/)
 
 ## Building the project
