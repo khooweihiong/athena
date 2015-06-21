@@ -9,11 +9,11 @@ spring:
         active: prod
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        url: 
-        databaseName: athena
-        serverName: localhost
-        username: athena
-        password: 
+        url: jdbc:postgresql://${db.host}:${db.port}/${db.name}
+        databaseName: ${db.name}
+        serverName: ${db.host}
+        username: ${db.username}
+        password: ${db.password}
 
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
@@ -28,8 +28,8 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
-            
-            
+
+
     thymeleaf:
         mode: XHTML
         cache: true

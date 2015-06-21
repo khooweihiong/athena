@@ -9,11 +9,11 @@ spring:
         active: dev
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        url: 
-        databaseName: athena
-        serverName: localhost
-        username: athena
-        password: 
+        url: jdbc:postgresql://${db.host}:${db.port}/${db.name}
+        databaseName: ${db.name}
+        serverName: ${db.host}
+        username: ${db.username}
+        password: ${db.password}
 
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
