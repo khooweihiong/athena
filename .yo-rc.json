@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "athena",
+    "packageName": "com.gfk.athena",
+    "packageFolder": "com/gfk/athena",
+    "authenticationType": "xauth",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": false,
+    "rememberMeKey": "919be99d23ab4ef6685c940636fac373b6430b6e"
+  }
+}
