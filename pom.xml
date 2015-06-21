@@ -373,6 +373,7 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*.xml</include>
+                    <include>**/*.yml</include>
                 </includes>
             </resource>
             <resource>
@@ -385,7 +386,7 @@
         </resources>
         <pluginManagement>
             <plugins>
-                <!--This plugin's configuration is used to store Eclipse m2e settings
+                <!--This plugin's configuration is used to store Ecupse m2e settings
                 only. It has no influence on the Maven build itself.-->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
@@ -572,10 +573,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost/athena</url>
+                    <url>jdbc:postgresql://${db.host}/${db.name}</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username>athena</username>
-                    <password></password>
+                    <username>${db.username}</username>
+                    <password>${db.password}</password>
                     <referenceUrl>hibernate:spring:com.gfk.athena.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
