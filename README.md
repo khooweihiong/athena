@@ -1,4 +1,4 @@
-# Athena [![Build Status](https://drone.io/github.com/StarTrackDevKL/athena/status.png)](https://drone.io/github.com/StarTrackDevKL/athena/latest) [![Dependency Status](https://gemnasium.com/StarTrackDevKL/athena.svg)](https://gemnasium.com/StarTrackDevKL/athena)
+# Athena [![Build Status](https://drone.io/github.com/StarTrackDevKL/athena/status.png)](https://drone.io/github.com/StarTrackDevKL/athena/latest) [![Dependency Status](https://gemnasium.com/StarTrackDevKL/athena.svg)](https://gemnasium.com/StarTrackDevKL/athena) ![Public Domain Badge](publicdomain.png)
 A simple library system powered by [JHipster][1].
 
 ## Requirements
