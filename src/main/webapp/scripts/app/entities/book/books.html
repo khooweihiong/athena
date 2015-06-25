@@ -115,7 +115,7 @@
 
                         <div class="form-group">
                             <label>owner</label>
-                            <select class="form-control" name="owner" ng-model="book.owner.id" ng-options="user.id as user.id for user in users">
+                            <select class="form-control" name="owner" ng-model="book.owner.id" ng-options="user.id as user.firstName for user in users">
                             </select>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                     <th>Available</th>
                     <th>Created</th>
                     <th>Updated</th>
-                    <th>owner</th>
+                    <th>Owner</th>
                     <th></th>
                 </tr>
             </thead>
@@ -183,7 +183,7 @@
                     <td>{{book.available}}</td>
                     <td>{{book.created}}</td>
                     <td>{{book.updated}}</td>
-                    <td>{{book.owner.id}}</td>
+                    <td>{{book.owner.firstName}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="bookDetail({id:book.id})"
