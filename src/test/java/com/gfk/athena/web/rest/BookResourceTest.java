@@ -56,14 +56,6 @@ public class BookResourceTest {
     private static final Boolean DEFAULT_AVAILABLE = false;
     private static final Boolean UPDATED_AVAILABLE = true;
 
-    private static final DateTime DEFAULT_CREATED = new DateTime(0L, DateTimeZone.UTC);
-    private static final DateTime UPDATED_CREATED = new DateTime(DateTimeZone.UTC).withMillisOfSecond(0);
-    private static final String DEFAULT_CREATED_STR = dateTimeFormatter.print(DEFAULT_CREATED);
-
-    private static final DateTime DEFAULT_UPDATED = new DateTime(0L, DateTimeZone.UTC);
-    private static final DateTime UPDATED_UPDATED = new DateTime(DateTimeZone.UTC).withMillisOfSecond(0);
-    private static final String DEFAULT_UPDATED_STR = dateTimeFormatter.print(DEFAULT_UPDATED);
-
     @Inject
     private BookRepository bookRepository;
 
@@ -87,8 +79,7 @@ public class BookResourceTest {
         book.setDescription(DEFAULT_DESCRIPTION);
         book.setPublisher(DEFAULT_PUBLISHER);
         book.setAvailable(DEFAULT_AVAILABLE);
-        book.setCreated(DEFAULT_CREATED);
-        book.setUpdated(DEFAULT_UPDATED);
+        book.setCreated(DateTime.now(DateTimeZone.UTC));
     }
 
     @Test
@@ -111,8 +102,7 @@ public class BookResourceTest {
         assertThat(testBook.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testBook.getPublisher()).isEqualTo(DEFAULT_PUBLISHER);
         assertThat(testBook.getAvailable()).isEqualTo(DEFAULT_AVAILABLE);
-        assertThat(testBook.getCreated().toDateTime(DateTimeZone.UTC)).isEqualTo(DEFAULT_CREATED);
-        assertThat(testBook.getUpdated().toDateTime(DateTimeZone.UTC)).isEqualTo(DEFAULT_UPDATED);
+        assertThat(testBook.getCreated()).isNotNull();
     }
 
     @Test
@@ -174,25 +164,6 @@ public class BookResourceTest {
 
     @Test
     @Transactional
-    public void checkCreatedIsRequired() throws Exception {
-        // Validate the database is empty
-        assertThat(bookRepository.findAll()).hasSize(0);
-        // set the field null
-        book.setCreated(null);
-
-        // Create the Book, which fails.
-        restBookMockMvc.perform(post("/api/books")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(book)))
-                .andExpect(status().isBadRequest());
-
-        // Validate the database is still empty
-        List<Book> books = bookRepository.findAll();
-        assertThat(books).hasSize(0);
-    }
-
-    @Test
-    @Transactional
     public void getAllBooks() throws Exception {
         // Initialize the database
         bookRepository.saveAndFlush(book);
@@ -206,9 +177,7 @@ public class BookResourceTest {
                 .andExpect(jsonPath("$.[*].author").value(hasItem(DEFAULT_AUTHOR.toString())))
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].publisher").value(hasItem(DEFAULT_PUBLISHER.toString())))
-                .andExpect(jsonPath("$.[*].available").value(hasItem(DEFAULT_AVAILABLE.booleanValue())))
-                .andExpect(jsonPath("$.[*].created").value(hasItem(DEFAULT_CREATED_STR)))
-                .andExpect(jsonPath("$.[*].updated").value(hasItem(DEFAULT_UPDATED_STR)));
+                .andExpect(jsonPath("$.[*].available").value(hasItem(DEFAULT_AVAILABLE.booleanValue())));
     }
 
     @Test
@@ -226,9 +195,7 @@ public class BookResourceTest {
             .andExpect(jsonPath("$.author").value(DEFAULT_AUTHOR.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.publisher").value(DEFAULT_PUBLISHER.toString()))
-            .andExpect(jsonPath("$.available").value(DEFAULT_AVAILABLE.booleanValue()))
-            .andExpect(jsonPath("$.created").value(DEFAULT_CREATED_STR))
-            .andExpect(jsonPath("$.updated").value(DEFAULT_UPDATED_STR));
+            .andExpect(jsonPath("$.available").value(DEFAULT_AVAILABLE.booleanValue()));
     }
 
     @Test
@@ -253,8 +220,6 @@ public class BookResourceTest {
         book.setDescription(UPDATED_DESCRIPTION);
         book.setPublisher(UPDATED_PUBLISHER);
         book.setAvailable(UPDATED_AVAILABLE);
-        book.setCreated(UPDATED_CREATED);
-        book.setUpdated(UPDATED_UPDATED);
         restBookMockMvc.perform(put("/api/books")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(book)))
@@ -269,8 +234,6 @@ public class BookResourceTest {
         assertThat(testBook.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testBook.getPublisher()).isEqualTo(UPDATED_PUBLISHER);
         assertThat(testBook.getAvailable()).isEqualTo(UPDATED_AVAILABLE);
-        assertThat(testBook.getCreated().toDateTime(DateTimeZone.UTC)).isEqualTo(UPDATED_CREATED);
-        assertThat(testBook.getUpdated().toDateTime(DateTimeZone.UTC)).isEqualTo(UPDATED_UPDATED);
     }
 
     @Test
