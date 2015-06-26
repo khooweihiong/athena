@@ -1,0 +1,109 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "owner",
+            "relationshipNameCapitalized": "Owner",
+            "relationshipFieldName": "owner",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "User",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Title",
+            "fieldNameUnderscored": "title",
+            "fieldInJavaBeanMethod": "Title",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "4"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "author",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Author",
+            "fieldNameUnderscored": "author",
+            "fieldInJavaBeanMethod": "Author",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description",
+            "fieldInJavaBeanMethod": "Description",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "publisher",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Publisher",
+            "fieldNameUnderscored": "publisher",
+            "fieldInJavaBeanMethod": "Publisher",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "available",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Available",
+            "fieldNameUnderscored": "available",
+            "fieldInJavaBeanMethod": "Available",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "created",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Created",
+            "fieldNameUnderscored": "created",
+            "fieldInJavaBeanMethod": "Created",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "updated",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Updated",
+            "fieldNameUnderscored": "updated",
+            "fieldInJavaBeanMethod": "Updated",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150625034743",
+    "dto": "no",
+    "pagination": "pagination",
+    "validation": true
+}
