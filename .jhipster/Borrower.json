@@ -1,0 +1,56 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "borrower",
+            "relationshipNameCapitalized": "Borrower",
+            "relationshipFieldName": "borrower",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "User",
+            "otherEntityField": "firstName"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "bookId",
+            "relationshipNameCapitalized": "BookId",
+            "relationshipFieldName": "bookId",
+            "otherEntityName": "book",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Book",
+            "otherEntityField": "title"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "takenDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "TakenDate",
+            "fieldNameUnderscored": "taken_date",
+            "fieldInJavaBeanMethod": "TakenDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "returnDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "ReturnDate",
+            "fieldNameUnderscored": "return_date",
+            "fieldInJavaBeanMethod": "ReturnDate",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150626070816",
+    "dto": "no",
+    "pagination": "pagination",
+    "validation": false
+}

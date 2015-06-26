@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span>Borrower</span> {{borrower.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>TakenDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{borrower.takenDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>ReturnDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{borrower.returnDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>borrower</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{borrower.borrower.firstName}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>bookId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{borrower.bookId.title}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="borrower"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
