@@ -53,7 +53,7 @@ public class BookResourceTest {
     private static final String DEFAULT_PUBLISHER = "SAMPLE_TEXT";
     private static final String UPDATED_PUBLISHER = "UPDATED_TEXT";
 
-    private static final Boolean DEFAULT_AVAILABLE = false;
+    private static final Boolean DEFAULT_AVAILABLE = true;
     private static final Boolean UPDATED_AVAILABLE = true;
 
     @Inject

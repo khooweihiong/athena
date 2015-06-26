@@ -5,6 +5,7 @@ import com.gfk.athena.domain.Book;
 import com.gfk.athena.repository.BookRepository;
 import com.gfk.athena.web.rest.util.PaginationUtil;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -46,7 +47,8 @@ public class BookResource {
             return ResponseEntity.badRequest().header("Failure", "A new book cannot already have an ID").build();
         }
 
-        book.setCreated(DateTime.now());
+        book.setAvailable(true);
+        book.setCreated(DateTime.now(DateTimeZone.UTC));
         bookRepository.save(book);
         return ResponseEntity.created(new URI("/api/books/" + book.getId())).build();
     }
@@ -67,7 +69,7 @@ public class BookResource {
         Book persisted = bookRepository.findOne(book.getId());
 
         book.setCreated(persisted.getCreated());
-        book.setUpdated(DateTime.now());
+        book.setUpdated(DateTime.now(DateTimeZone.UTC));
 
         bookRepository.save(book);
         return ResponseEntity.ok().build();
