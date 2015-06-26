@@ -46,7 +46,6 @@ public class Book implements Serializable {
     @Column(name = "available")
     private Boolean available;
 
-    @NotNull
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
